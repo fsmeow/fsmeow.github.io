@@ -1291,9 +1291,9 @@ input, select, textarea {
 			}
 
 		#header .logo {
-			width: 5.5rem;
-			height: 5.5rem;
-			line-height: 5.5rem;
+			width: 8rem;
+			height: 8rem;
+			line-height: 8rem;
 			border: solid 1px #ffffff;
 			border-radius: 100%;
 		}
@@ -1661,8 +1661,19 @@ input, select, textarea {
 		}
 
 /* Custom */
-	#logo-image {
+	#profile-picture {
 		border-radius: 50%;
 		height: 100%;
 		width: 100%;
+	}
+
+	.section-text {
+		color: #ffffff;
+		font-family: "Source Sans Pro", sans-serif;
+		font-weight: 300;
+		line-height: 1.65;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		font-size: 0.8rem;
+		line-height: 2;
 	}
