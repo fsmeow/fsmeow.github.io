@@ -1308,7 +1308,7 @@ input, select, textarea {
 
 	body {
 		/* background-image: url("images/overlay.png"), url("images/bg.jpg"); */
-		background-image: url("images/overlay.png"), linear-gradient(to bottom right, #E3FDFA, #71F3E7);
+		background-image: url("images/overlay.png"), linear-gradient(to top, #ffffff, #3CAADE);
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1775,6 +1775,7 @@ input, select, textarea {
 	text-decoration: none;
 	position: relative;
 	text-decoration: none;
+	text-shadow: 1px 1px 2px #00000042;
 }
 
 	.miidb:before {
@@ -2182,15 +2183,14 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		color: rgba(255, 255, 255, 0.45);
+		color: #3CAADE;
 		text-align: center;
 		padding: 2em 0 0 0;
 		font-size: 0.75em;
 	}
 
 		#footer a {
-			color: #ddd;
-			color: rgba(255, 255, 255, 0.65);
+			color: #3CAADE;
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
 			-ms-transition: color .25s ease-in-out;
@@ -2210,7 +2210,7 @@ input, select, textarea {
 				display: inline-block;
 				padding-left: 1em;
 				margin-left: 1em;
-				border-left: solid 1px rgba(255, 255, 255, 0.25);
+				border-left: solid 1px #3CAADE;
 				line-height: 1;
 			}
 
