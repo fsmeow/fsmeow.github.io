@@ -1,212 +1,84 @@
-/*
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-(function($) {
-
-	var $window = $(window),
-		$body = $('body'),
-		$wrapper = $('#wrapper'),
-		$main = $('#main'),
-		$panels = $main.children('.panel'),
-		$nav = $('#nav'), $nav_links = $nav.children('a');
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:  [ '1281px',  '1680px' ],
-			large:   [ '981px',   '1280px' ],
-			medium:  [ '737px',   '980px'  ],
-			small:   [ '361px',   '736px'  ],
-			xsmall:  [ null,      '360px'  ]
-		});
-
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
-
-	// Nav.
-		$nav_links
-			.on('click', function(event) {
-
-				var href = $(this).attr('href');
-
-				// Not a panel link? Bail.
-					if (href.charAt(0) != '#'
-					||	$panels.filter(href).length == 0)
-						return;
-
-				// Prevent default.
-					event.preventDefault();
-					event.stopPropagation();
-
-				// Change panels.
-					if (window.location.hash != href)
-						window.location.hash = href;
-
-			});
-
-	// Panels.
-
-		// Initialize.
-			(function() {
-
-				var $panel, $link;
-
-				// Get panel, link.
-					if (window.location.hash) {
-
-				 		$panel = $panels.filter(window.location.hash);
-						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
-
-					}
-
-				// No panel/link? Default to first.
-					if (!$panel
-					||	$panel.length == 0) {
-
-						$panel = $panels.first();
-						$link = $nav_links.first();
-
-					}
-
-				// Deactivate all panels except this one.
-					$panels.not($panel)
-						.addClass('inactive')
-						.hide();
-
-				// Activate link.
-					$link
-						.addClass('active');
-
-				// Reset scroll.
-					$window.scrollTop(0);
-
-			})();
-
-		// Hashchange event.
-			$window.on('hashchange', function(event) {
-
-				var $panel, $link;
-
-				// Get panel, link.
-					if (window.location.hash) {
-
-				 		$panel = $panels.filter(window.location.hash);
-						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
-
-						// No target panel? Bail.
-							if ($panel.length == 0)
-								return;
-
-					}
-
-				// No panel/link? Default to first.
-					else {
-
-						$panel = $panels.first();
-						$link = $nav_links.first();
-
-					}
-
-				// Deactivate all panels.
-					$panels.addClass('inactive');
-
-				// Deactivate all links.
-					$nav_links.removeClass('active');
-
-				// Activate target link.
-					$link.addClass('active');
-
-				// Set max/min height.
-					$main
-						.css('max-height', $main.height() + 'px')
-						.css('min-height', $main.height() + 'px');
-
-				// Delay.
-					setTimeout(function() {
-
-						// Hide all panels.
-							$panels.hide();
-
-						// Show target panel.
-							$panel.show();
-
-						// Set new max/min height.
-							$main
-								.css('max-height', $panel.outerHeight() + 'px')
-								.css('min-height', $panel.outerHeight() + 'px');
-
-						// Reset scroll.
-							$window.scrollTop(0);
-
-						// Delay.
-							window.setTimeout(function() {
-
-								// Activate target panel.
-									$panel.removeClass('inactive');
-
-								// Clear max/min height.
-									$main
-										.css('max-height', '')
-										.css('min-height', '');
-
-								// IE: Refresh.
-									$window.triggerHandler('--refresh');
-
-								// Unlock.
-									locked = false;
-
-							}, (breakpoints.active('small') ? 0 : 500));
-
-					}, 250);
-
-			});
-
-	// IE: Fixes.
-		if (browser.name == 'ie') {
-
-			// Fix min-height/flexbox.
-				$window.on('--refresh', function() {
-
-					$wrapper.css('height', 'auto');
-
-					window.setTimeout(function() {
-
-						var h = $wrapper.height(),
-							wh = $window.height();
-
-						if (h < wh)
-							$wrapper.css('height', '100vh');
-
-					}, 0);
-
-				});
-
-				$window.on('resize load', function() {
-					$window.triggerHandler('--refresh');
-				});
-
-			// Fix intro pic.
-				$('.panel.intro').each(function() {
-
-					var $pic = $(this).children('.pic'),
-						$img = $pic.children('img');
-
-					$pic
-						.css('background-image', 'url(' + $img.attr('src') + ')')
-						.css('background-size', 'cover')
-						.css('background-position', 'center');
-
-					$img
-						.css('visibility', 'hidden');
-
-				});
-
-		}
-
-})(jQuery);
+(function(){
+    // Responsive Tabbed Navigation - by CodyHouse.co
+  function TabbedNavigation( element ) {
+    this.element = element;
+    this.navigation = this.element.getElementsByClassName("cd-tabs__navigation")[0];
+    this.navigationElements = this.navigation.getElementsByClassName("cd-tabs__list")[0];
+    this.content = this.element.getElementsByClassName("cd-tabs__panels")[0];
+    this.activeTab;
+    this.activeContent;
+    this.init();
+  };
+
+  TabbedNavigation.prototype.init = function() {
+    var self = this;
+    //listen for the click on the tabs navigation
+    this.navigation.addEventListener("click", function(event){
+      event.preventDefault();
+      var selectedItem = event.target.closest('.cd-tabs__item');
+      if(selectedItem && !Util.hasClass(selectedItem, "cd-tabs__item--selected")) {
+        self.activeTab = selectedItem;
+        self.activeContent = document.getElementById(self.activeTab.getAttribute("href").replace('#', ''));
+        self.updateContent();
+      }
+    });
+
+    //listen for the scroll in the tabs navigation 
+    this.navigationElements.addEventListener('scroll', function(event){
+      self.toggleNavShadow();
+    });
+  };
+
+  TabbedNavigation.prototype.updateContent = function() {
+    var self = this;
+    var actualHeight = this.content.offsetHeight;
+    //update navigation classes
+    Util.removeClass(this.navigation.querySelectorAll(".cd-tabs__item--selected")[0], "cd-tabs__item--selected");
+    Util.addClass(this.activeTab, "cd-tabs__item--selected");
+    //update content classes
+    Util.removeClass(this.content.querySelectorAll(".cd-tabs__panel--selected")[0], "cd-tabs__panel--selected");
+    Util.addClass(this.activeContent, "cd-tabs__panel--selected");
+    //set new height for the content wrapper
+    if(window.requestAnimationFrame && window.getComputedStyle(this.element).getPropertyValue('display') == 'block') {
+      Util.setHeight(actualHeight, this.activeContent.offsetHeight, this.content, 200, function(){
+        self.content.removeAttribute('style');
+      });
+    }
+  };
+
+  TabbedNavigation.prototype.toggleNavShadow = function() {
+    //show/hide tabs navigation gradient layer
+    this.content.removeAttribute("style");
+    var navItems = this.navigationElements.getElementsByClassName("cd-tabs__item"),
+      navigationRight = Math.floor(this.navigationElements.getBoundingClientRect().right),
+      lastItemRight = Math.ceil(navItems[navItems.length - 1].getBoundingClientRect().right);
+    ( navigationRight >= lastItemRight )
+      ? Util.addClass(this.element, "cd-tabs--scroll-ended")
+      : Util.removeClass(this.element, "cd-tabs--scroll-ended");
+  };
+
+  var tabs = document.getElementsByClassName("js-cd-tabs"),
+    tabsArray = [],
+    resizing = false;
+  if( tabs.length > 0 ) {
+    for( var i = 0; i < tabs.length; i++) {
+      (function(i){
+        tabsArray.push(new TabbedNavigation(tabs[i]));
+      })(i);
+    }
+
+    window.addEventListener("resize", function(event) {
+      if( !resizing ) {
+        resizing = true;
+        (!window.requestAnimationFrame) ? setTimeout(checkTabs, 250) : window.requestAnimationFrame(checkTabs);
+      }
+    });
+  }
+
+  function checkTabs() {
+    tabsArray.forEach(function(tab){
+      tab.toggleNavShadow();
+    });
+    resizing = false;
+  };
+})();

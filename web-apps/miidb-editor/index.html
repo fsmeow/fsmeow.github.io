@@ -1,86 +1,122 @@
-<!DOCTYPE HTML>
-<!--
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>MiiDB Editor</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>MiiDB Editor | fsmeow.com</title>
+</head>
+<body>
 
-		<!-- Wrapper-->
-			<div id="wrapper">
+  <div class="cd-tabs cd-tabs--vertical container max-width-md margin-top-xl margin-bottom-lg js-cd-tabs">
+    <nav class="cd-tabs__navigation">
+      <ul class="cd-tabs__list">
+        <li>
+          <a href="#tab-home" class="miidb icon-home cd-tabs__item cd-tabs__item--selected"></a>
+        </li>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<a href="#" class="miidb-icon solid icon-home"><span>Home</span></a>
-						<a href="#about-mii" class="miidb-icon solid icon-about"><span>Mii Info</span></a>
-						<a href="#hairstyle" class="miidb-icon solid icon-hairstyle"><span>Hairstyle</span></a>
-						<a href="#eyebrows" class="miidb-icon solid icon-eyebrows"><span>Eyebrows</span></a>
-						<a href="#eyes" class="miidb-icon solid icon-eyes"><span>Eyes</span></a>
-						<a href="#nose" class="miidb-icon solid icon-nose"><span>Nose</span></a>
-						<a href="#mouth" class="miidb-icon solid icon-mouth"><span>Mouth</span></a>
-						<a href="#glasses" class="miidb-icon solid icon-glasses"><span>Glasses</span></a>
-						<a href="#facial-hair" class="miidb-icon solid icon-facial-hair"><span>Facial Hair</span></a>
-						<!-- <a href="#mole" class="miidb-icon solid icon-mole"><span>Mole</span></a> -->
-						<a href="#body-type" class="miidb-icon solid icon-body-type"><span>Body Type</span></a>
-						<a href="#gender" class="miidb-icon solid icon-gender"><span>Gender</span></a>
-						
-					</nav>
+        <li>
+          <a href="#tab-mii-info" class="miidb icon-info icon-home cd-tabs__item"></a>
+        </li>
 
-				<!-- Main -->
-					<div id="main">
+        <li>
+          <a href="#tab-face" class="miidb icon-face cd-tabs__item"></a>
+        </li>
 
-						<!-- Home Pane -->
-							<article id="home" class="panel intro">
-								<header>
-									<h1>No Name</h1>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a magna egestas lectus accumsan convallis. Nunc dictum purus magna, a semper ex aliquam id. Sed ligula ipsum, faucibus a orci quis, pretium tempus tortor. Ut mi nibh, vestibulum eu fermentum ut, vulputate eget sem.
-								</header>
-								<img src="https://studio.mii.nintendo.com/miis/image.png?data=000f165d6574777a7f848f9399a6a9b6bbb8bfc6cdd4dbe2f1fc0310181f450c0f161b161c1619151f22292a353b39&width=270&type=face" alt="" />
-							</article>
+        <li>
+          <a href="#tab-hairstyle" class="miidb icon-hairstyle cd-tabs__item"></a>
+        </li>
 
-						<!-- About Mii -->
-							<article id="about-mii" class="panel intro">
-								<header>
-									<h1>Fsmeow</h1>
-									<table>
-										<col style="width: 30%;">
-										<tr>
-											<td>Creator:</td>
-											<td>Fsmeow</td>
-										</tr>
-										<tr>
-											<td>Birthday:</td>
-											<td>03/03</td>
-										</tr>
-									</table>
-								</header>
-								<img src="https://studio.mii.nintendo.com/miis/image.png?data=1322298288878a96aaafaaafaeafb2babfbbc1c9cfd6d7ddd0dcd9dad9df8fdbe2e9f2ecf6ecf5eeeaf5fcfd000808&width=270&type=face" alt="" />
-							</article>
-					</div>
+        <li>
+          <a href="#tab-eyebrows" class="miidb icon-eyebrows cd-tabs__item"></a>
+        </li>
 
-				<!-- Footer -->
-					<div id="footer">
-						<ul class="copyright">
-							<p class="copyright">&copy; 2022 fsmeow.com | Design by: <a href="https://html5up.net">HTML5 UP</a></p>
-						</ul>
-					</div>
+        <li>
+          <a href="#tab-eyes" class="miidb icon-eyes cd-tabs__item"></a>
+        </li>
 
-			</div>
+        <li>
+          <a href="#tab-nose" class="miidb icon-nose cd-tabs__item"></a>
+        </li>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        <li>
+          <a href="#tab-mouth" class="miidb icon-mouth cd-tabs__item"></a>
+        </li>
 
-	</body>
+        <li>
+          <a href="#tab-accesories" class="miidb icon-face-extras cd-tabs__item"></a>
+        </li>
+
+        <li>
+          <a href="#tab-body" class="miidb icon-body-type cd-tabs__item"></a>
+        </li>
+
+        <li>
+          <a href="#tab-qr" class="miidb icon-qr-code cd-tabs__item"></a>
+        </li>
+
+        <li>
+          <a href="#tab-about" class="miidb icon-about cd-tabs__item"></a>
+        </li>
+      </ul> <!-- cd-tabs__list -->
+    </nav>
+
+    <ul class="cd-tabs__panels">
+      <li id="tab-home" class="cd-tabs__panel cd-tabs__panel--selected text-component">
+        <p>HOME</p>
+      </li>
+
+      <li id="tab-mii-info" class="cd-tabs__panel text-component">
+        <p><form>
+          <label>Nickname:</label> <br />
+          <input type="text" width="100%">
+        </form></p>
+      </li>
+
+      <li id="tab-face" class="cd-tabs__panel text-component">
+        <p>FACE</p>
+      </li>
+
+      <li id="tab-hairstyle" class="cd-tabs__panel text-component">
+        <p>HAIRSTYLE</p>
+      </li>
+
+      <li id="tab-eyebrows" class="cd-tabs__panel text-component">
+        <p>EYEBROWS</p>
+      </li>
+
+      <li id="tab-eyes" class="cd-tabs__panel text-component">
+        <p>EYEBS</p>
+      </li>
+
+      <li id="tab-nose" class="cd-tabs__panel text-component">
+        <p>NOSE</p>
+      </li>
+
+      <li id="tab-mouth" class="cd-tabs__panel text-component">
+        <p>MOUTH</p>
+      </li>
+
+      <li id="tab-accesories" class="cd-tabs__panel text-component">
+        <p>ACCESORIES</p>
+      </li>
+
+      <li id="tab-body" class="cd-tabs__panel text-component">
+        <p>BODY TYPE</p>
+      </li>
+
+      <li id="tab-qr" class="cd-tabs__panel text-component">
+        <p>QR CODE</p>
+      </li>
+
+      <li id="tab-about" class="cd-tabs__panel text-component">
+        <p>ABOUT</p>
+      </li>
+
+    </ul> <!-- cd-tabs__panels -->
+  </div> <!-- cd-tabs -->
+<script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+<script src="assets/js/main.js"></script>
+</body>
 </html>
