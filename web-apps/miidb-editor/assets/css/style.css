@@ -119,7 +119,7 @@ body {
 	overflow-y: scroll;
     padding: 3.25em 0;
     padding: var(--space-xl) 0;
-    transition: background-color 1s;
+    transition: background-color 2s;
 }
 body:before {
     border-radius: inherit;
