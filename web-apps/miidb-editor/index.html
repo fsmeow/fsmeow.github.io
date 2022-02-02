@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <script src="assets/js/miidbscript.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <title>MiiDB Editor | fsmeow.com</title>
 </head>
-<body>
+<body id="mainBody">
 
   <div class="cd-tabs cd-tabs--vertical container max-width-md margin-top-xl margin-bottom-lg js-cd-tabs">
     <nav class="cd-tabs__navigation">
@@ -64,7 +65,18 @@
 
     <ul class="cd-tabs__panels">
       <li id="tab-home" class="cd-tabs__panel cd-tabs__panel--selected text-component">
-        <p>HOME</p>
+        <button onclick="changeColor(this.id)" id="#D31E15" style="background-color: #D31E15"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#FF6F19" style="background-color: #FF6F19"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#FFD920" style="background-color: #FFD920"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#78D320" style="background-color: #78D320"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#007830" style="background-color: #007830"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#1F4898" style="background-color: #1F4898"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#3CAADF" style="background-color: #3CAADF"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#F55A7C" style="background-color: #F55A7C"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#7428AE" style="background-color: #7428AE"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#483817" style="background-color: #483817"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#E0E0E0" style="background-color: #E0E0E0"> ­ </button>
+        <button onclick="changeColor(this.id)" id="#181914" style="background-color: #181914"> ­ </button>
       </li>
 
       <li id="tab-mii-info" class="cd-tabs__panel text-component">

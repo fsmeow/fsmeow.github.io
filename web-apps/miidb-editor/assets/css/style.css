@@ -113,11 +113,24 @@ html {
     box-sizing: border-box;
 }
 body {
-    background-image: url("../../images/overlay.png"), linear-gradient(to top, #ffffff, #3CAADE);
 	background-repeat: repeat, no-repeat;
 	background-size: auto, 100% 100%;
 	background-attachment: fixed;
 	overflow-y: scroll;
+    padding: 3.25em 0;
+    padding: var(--space-xl) 0;
+    transition: background-color 1s;
+}
+body:before {
+    border-radius: inherit;
+    background-image: url("../../images/overlay.png"), linear-gradient(to top, #ffffff, #ffffff00);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: -1000;
 }
 article,
 aside,
@@ -3172,12 +3185,6 @@ mark {
     --cd-color-4-s: 84%;
     --cd-color-4-l: 63%;
     --font-primary: "PT Sans", sans-serif;
-}
-body {
-    background-color: hsl(225, 31%, 23%);
-    background-color: var(--cd-color-1);
-    padding: 3.25em 0;
-    padding: var(--space-xl) 0;
 }
 h1 {
     color: hsl(54, 42%, 95%);
