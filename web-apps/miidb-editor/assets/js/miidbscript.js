@@ -1,3 +1,6 @@
+var currentColor = "white";
+
 function changeColor(buttonId) {
-    document.getElementById("mainBody").style.backgroundColor = buttonId;
+    currentColor = buttonId;
+    document.getElementById("mainBody").style.backgroundColor = currentColor;
 }
