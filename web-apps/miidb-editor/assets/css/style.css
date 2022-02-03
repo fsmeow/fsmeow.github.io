@@ -113,7 +113,6 @@ html {
     box-sizing: border-box;
 }
 body {
-    background-color: #aaaaaa;
 	background-repeat: repeat, no-repeat;
 	background-size: auto, 100% 100%;
 	background-attachment: fixed;
