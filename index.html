@@ -1,1 +1,43 @@
-Coming Soon
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="./assets/scripts/tailwindcss-3.1.8.js"></script>
+        <script src="./assets/scripts/timer.js" type="text/javascript"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"/>
+        <title>Timer</title>
+    </head>
+    <body class="bg-[#F0F0F0]" onload="setupTimer()">
+        <div class="flex items-center justify-center h-screen">
+            <div>
+                <div class="bg-black text-4xl w-px w-96 mx-1 flex items-center justify-center pt-1" style="font-family: 'Share Tech Mono'">
+                        <div id="timerColor" class="text-[#ff0000]"><span id="time" class="cursor-pointer hover:text-[#ffff00]" ondblclick="manualTimer()">00:00.000</span></div>
+                </div>
+                <div class="flex my-1">
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-1" id="preset1" onclick="presetClick(this)" oncontextmenu="javascript:presetClear(this);return false;">Set Time</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-0" id="preset2" onclick="presetClick(this)" oncontextmenu="javascript:presetClear(this);return false;">Set Time</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-1" id="preset3" onclick="presetClick(this)" oncontextmenu="javascript:presetClear(this);return false;">Set Time</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-0" id="preset4" onclick="presetClick(this)" oncontextmenu="javascript:presetClear(this);return false;">Set Time</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-1" id="preset5" onclick="presetClick(this)" oncontextmenu="javascript:presetClear(this);return false;">Set Time</button>
+                </div>
+                <div class="flex my-1">
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-1" id="stopwatch" onclick="stopwatch(this)">Start</button>
+                    <select class="text-center outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-0" id="selectedSound" onchange="selectedSoundChange(this)">
+                        <option value="bell">Basic Bell</option>
+                        <option value="chime">Chime</option>
+                        <option value="minimal">Minimal</option>
+                        <option value="ticktac">Ticktac</option>
+                    </select>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] disabled:bg-[#F9F9F9] text-xs text-black disabled:text-[#A0A0A0] py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] disabled:border-[#C9C9C9] rounded w-full mx-1" id="test" onclick="playAudio()">← Test</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-0" id="soundEnabled" onclick="soundEnabledClick(this)">Sound: OFF</button>
+                    <button class="outline-0 bg-[#E1E1E1] hover:bg-[#E0EEF9] active:bg-[#CCE4F7] text-xs text-black py-1 border border-[#ADADAD] hover:border-[#0078D4] active:border-[#005499] rounded w-full mx-1" id="preset5">How to</button>
+                </div>
+                <span class="flex items-center justify-center text-[9px] text-zinc-400 font-bold uppercase">Any suggestions? fportillo1@moneygram.com</span>
+            </div>
+        </div>
+    </body>
+</html>
